@@ -1,0 +1,35 @@
+{
+  "name": "mobile",
+  "version": "1.0.0",
+  "description": "A native application built with NativeScript-Vue",
+  "author": "binhth.vuejx <binhth.vuejx@gmail.com>",
+  "license": "MIT",
+  "nativescript": {
+    "id": "org.nativescript.application",
+    "templateVersion": "v2",
+    "tns-android": {
+      "version": "6.5.0"
+    },
+    "tns-ios": {
+      "version": "6.5.0"
+    }
+  },
+  "dependencies": {
+    "nativescript-tailwind": "^1.3.0",
+    "nativescript-vue": "^2.6.1",
+    "tns-core-modules": "^6.5.1"
+  },
+  "devDependencies": {
+    "postcss": "^7.0.28",
+    "postcss-loader": "^3.0.0",
+    "tailwindcss": "^1.4.4",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-loader": "^8.1.0",
+    "nativescript-dev-webpack": "^1.5.1",
+    "nativescript-vue-template-compiler": "^2.6.0",
+    "nativescript-worker-loader": "~0.11.0",
+    "node-sass": "^4.13.1",
+    "vue-loader": "^15.9.1"
+  }
+}
