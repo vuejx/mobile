@@ -1,4 +1,4 @@
-# NativeScript-Vue Application
+# VueJX
 
 > A native application built with NativeScript-Vue
 
