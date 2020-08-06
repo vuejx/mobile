@@ -218,6 +218,9 @@ module.exports = env => {
                         loader: "nativescript-dev-webpack/css2json-loader",
                         options: { useForImports: true }
                     },
+                    {
+                        loader: 'postcss-loader'
+                    }
                 ],
             },
             {
@@ -238,6 +241,9 @@ module.exports = env => {
                     'nativescript-dev-webpack/style-hot-loader',
                     'nativescript-dev-webpack/apply-css-loader.js',
                     { loader: "css-loader", options: { url: false } },
+                    {
+                        loader: 'postcss-loader'
+                    }
                 ],
             },
             {
