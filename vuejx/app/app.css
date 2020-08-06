@@ -8,3 +8,7 @@
 .ion{
   font-family: "ionicons";
 }
+
+TextField {
+  height: 82px;
+}

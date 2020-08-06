@@ -21,8 +21,10 @@ Vue.filter('fonticon', fonticon);
 Vue.config.silent = (TNS_ENV === 'production')
 // register component
 import VnBtn from './components/button/Index.vue'
+import VnText from './components/textfield/Index.vue'
 
 Vue.component('vn-btn', VnBtn)
+Vue.component('vn-text', VnText)
 
 new Vue({
   store,
