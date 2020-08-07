@@ -7,7 +7,6 @@ global.screen = {}
 
 import VueDevtools from 'nativescript-vue-devtools'
 Vue.use(VueDevtools)
-
 import { TNSFontIcon, fonticon } from './nativescript-fonticon';
 TNSFontIcon.debug = false;
 TNSFontIcon.paths = {
@@ -16,15 +15,18 @@ TNSFontIcon.paths = {
 };
 TNSFontIcon.loadCss();
 Vue.filter('fonticon', fonticon);
+Vue.registerElement('PDFView', () => require('nativescript-pdf-view').PDFView)
 
 // Prints Vue logs when --env.production is *NOT* set while building
 Vue.config.silent = (TNS_ENV === 'production')
 // register component
 import VnBtn from './components/button/Index.vue'
 import VnText from './components/textfield/Index.vue'
+import VnPdf from './components/pdf/Index.vue'
 
 Vue.component('vn-btn', VnBtn)
 Vue.component('vn-text', VnText)
+Vue.component('vn-pdf', VnPdf)
 
 new Vue({
   store,
