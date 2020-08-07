@@ -11,7 +11,7 @@
             iosOverflowSafeArea="false">
             <TextField :text="current" :hint="hint" verticalAlignment="center"
                 horizontalAlignment="left" :keyboardType="keyboard"
-                iosOverflowSafeArea="false" />
+                iosOverflowSafeArea="false" :secure="secure" />
         </GridLayout>
     </GridLayout>
 </template>
@@ -65,6 +65,10 @@
             keyboard: {
                 type: String,
                 default: ""
+            },
+            secure: {
+                type: Boolean,
+                default: false
             }
         },
         name: "TextFieldI",
