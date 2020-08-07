@@ -3,7 +3,10 @@ import App from './pages/App'
 import store from './store'
 import axios from "axios"
 global.axios = axios
+global.Buffer = global.Buffer || require('buffer').Buffer;
 global.screen = {}
+var viewScreen = null;
+global.viewScreen = viewScreen;
 
 import VueDevtools from 'nativescript-vue-devtools'
 Vue.use(VueDevtools)
@@ -22,10 +25,12 @@ Vue.config.silent = (TNS_ENV === 'production')
 // register component
 import VnBtn from './components/button/Index.vue'
 import VnText from './components/textfield/Index.vue'
+import VnImageView from './components/image/Index.vue'
 import VnPdf from './components/pdf/Index.vue'
 
 Vue.component('vn-btn', VnBtn)
 Vue.component('vn-text', VnText)
+Vue.component('vn-image-view', VnImageView)
 Vue.component('vn-pdf', VnPdf)
 
 new Vue({

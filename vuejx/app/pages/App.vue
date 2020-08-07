@@ -3,7 +3,6 @@
     <component :is="currentComponent"></component>
   </Page>
 </template>
-
 <script>
 var viewScreen = {
   template: `
@@ -20,8 +19,15 @@ export default {
       currentComponent: "viewScreen",
     };
   },
+  watch:{
+    'global.viewScreen': function (data) {
+      console.log('-----------------------------')
+      console.log(data)
+    }
+  },
   async mounted() {
     let vm = this;
+    console.log(global.viewScreen);
     const queryBody = {
       size: 1,
       query: {
