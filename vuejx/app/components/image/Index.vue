@@ -1,5 +1,7 @@
 <template>
-  <Image :src="'http://119.17.200.66:2480'+src" stretch="fill" col="1" :width="width" :height="height"/>
+  <StackLayout>
+    <Image :src="'http://119.17.200.66:2480'+src" :horizontalAlignment="alignment" :width="width" :height="height"/>
+  </StackLayout>
 </template>
 <script>
 export default {
@@ -9,7 +11,8 @@ export default {
   props: {
     src: String,
     width: String,
-    height: String
+    height: String,
+    alignment: String
   },
 };
 </script>

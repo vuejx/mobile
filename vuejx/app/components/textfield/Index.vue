@@ -3,15 +3,15 @@
         iosOverflowSafeArea="false">
         <GridLayout :col="getIconPos()" :backgroundColor="iconBackgroundColor"
             :class="'lpi-icon ' + position" iosOverflowSafeArea="false">
-            <Label :class="iconset" :text="icon | fonticon" verticalAlignment="center"
+            <Label :class="iconset" :text="icon | fonticon" verticalAlignment="center" color="000000"
                 horizontalAlignment="center" iosOverflowSafeArea="false" />
         </GridLayout>
         <GridLayout :col="getTextPos()" :backgroundColor="textBackgroundColor"
-            :class="'lpi-text ' + position + (border ? ' border':'')"
+            :class="'lpi-text ' + position"
             iosOverflowSafeArea="false">
-            <TextField v-model="current" :hint="hint" verticalAlignment="center"
+            <TextField :text="current" :hint="hint" verticalAlignment="center"
                 horizontalAlignment="left" :keyboardType="keyboard"
-                iosOverflowSafeArea="false"/>
+                iosOverflowSafeArea="false" />
         </GridLayout>
     </GridLayout>
 </template>
@@ -23,11 +23,6 @@
                 current: undefined
             };
         },
-        watch:{
-            current: function(value) {
-                this.$emit('input', value)
-            }
-        },
         created() {
             this.current = this.value;
         },
@@ -37,7 +32,7 @@
             }
         },
         props: {
-            value: String,
+            value: Object,
             iconset: {
                 type: String,
                 default: "fa"
@@ -48,7 +43,7 @@
             },
             iconBackgroundColor: {
                 type: String,
-                default: "#003c5a"
+                default: "#ffffff"
             },
             textBackgroundColor: {
                 type: String,
