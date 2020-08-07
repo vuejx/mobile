@@ -1,6 +1,8 @@
 <template>
-  <Page>
-    <component :is="currentComponent"></component>
+  <Page actionBarHidden="true">
+    <FlexboxLayout class="page">
+      <component :is="currentComponent"></component>
+    </FlexboxLayout>
   </Page>
 </template>
 
@@ -70,3 +72,22 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.page {
+  align-items: center !important;
+  flex-direction: column !important;
+  background-image: url('http://119.17.200.66:2480/security/file/native_app/file-1596781452516.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+    .form {
+        margin-left: 30;
+        margin-right: 30;
+        flex-grow: 2;
+        vertical-align: middle;
+    }
+
+</style>
