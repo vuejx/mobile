@@ -1,5 +1,5 @@
 <template>
-  <Button class="border p-3 m-3 fa" @tap="click">{{'' | fonticon}}  {{label}} {{'fa-check' | fonticon}}</Button>
+  <Button class="border p-3 m-3 fa" @tap="click">{{icon | fonticon}} {{text}}</Button>
 </template>
 
 <script >
@@ -10,14 +10,18 @@ export default {
     };
   },
   props:{
-  	label: {
+    text: {
       type: String
+    },
+    icon: {
+      type: String,
+      default: ""
     }
   },
   methods:{
     click(){
       this.$emit('tap')
-    },    
+    },
   }
 };
 </script>

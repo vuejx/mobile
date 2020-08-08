@@ -9,7 +9,7 @@
         <GridLayout :col="getTextPos()" :backgroundColor="textBackgroundColor"
             :class="'lpi-text ' + position"
             iosOverflowSafeArea="false">
-            <TextField :text="current" :hint="hint" verticalAlignment="center"
+            <TextField v-model="current" :hint="hint" verticalAlignment="center"
                 horizontalAlignment="left" :keyboardType="keyboard"
                 iosOverflowSafeArea="false" :secure="secure" />
         </GridLayout>
@@ -23,6 +23,11 @@
                 current: undefined
             };
         },
+        watch:{
+            current: function(value) {
+                this.$emit('input', value)
+            }
+        },
         created() {
             this.current = this.value;
         },
@@ -32,7 +37,7 @@
             }
         },
         props: {
-            value: Object,
+            value: String,
             iconset: {
                 type: String,
                 default: "fa"
