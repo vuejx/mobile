@@ -30,9 +30,12 @@ export default {
   async mounted() {
     let vm = this;
     const queryBody = {
-      size: 10,
+      size: 10000,
       query: {
-        match_all: {}
+        bool: {
+          must: [
+          ],
+        },
       },
     };
     var query = `query search($token: String, $body: JSON, $db: String, $collection: String) {
@@ -50,6 +53,7 @@ export default {
       })
       .then((data) => {
         global.screen = {};
+        console.log('data["results"]["hits"]["hits"]data["results"]["hits"]["hits"]', data["results"]["hits"]["hits"].length)
         for (const el of data["results"]["hits"]["hits"]) {
           global.screen[el["_source"]["shortName"]] = el["_source"];
         }
@@ -105,7 +109,7 @@ export default {
 .page {
   align-items: center !important;
   flex-direction: column !important;
-  background-image: url('http://119.17.200.66:2480/security/file/native_app/file-1596781452516.png');
+  background-image: url("http://119.17.200.66:2480/security/file/native_app/file-1596781452516.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
