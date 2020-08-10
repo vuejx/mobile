@@ -1,7 +1,7 @@
 <template>
   <StackLayout>
     <vn-loading v-if="loading"></vn-loading>
-    <Button v-else class="border p-3 m-3 fa" @tap="click">{{icon | fonticon}} {{text}}</Button>
+    <Button v-else class="border p-3 m-3 fa" @tap="click">{{icon_before | fonticon}} {{text}} {{icon_after | fonticon}}</Button>
   </StackLayout>
 </template>
 
@@ -15,9 +15,13 @@ export default {
   props:{
     text: {
       type: String,
-      default:'Button'
+      default:""
     },
-    icon: {
+    icon_before: {
+      type: String,
+      default: ""
+    },
+    icon_after: {
       type: String,
       default: ""
     },
