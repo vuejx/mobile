@@ -9,7 +9,6 @@
     </FlexboxLayout>
   </Page>
 </template>
-<script src="http://localhost:8098"></script>
 <script>
 import { screen } from 'tns-core-modules/platform';
 const device = require("tns-core-modules/platform").device;
