@@ -9,8 +9,8 @@
         <GridLayout :col="getTextPos()" :backgroundColor="textBackgroundColor"
             :class="'lpi-text ' + position"
             iosOverflowSafeArea="false">
-            <TextField :text="current" :hint="hint" verticalAlignment="center"
-                horizontalAlignment="left" :keyboardType="keyboard"
+            <TextField v-model="current" :hint="hint" verticalAlignment="center"
+                horizontalAlignment="left" :keyboardType="keyboard" autocapitalizationType="none"
                 iosOverflowSafeArea="false" :secure="secure" />
         </GridLayout>
     </GridLayout>
@@ -23,8 +23,10 @@
                 current: undefined
             };
         },
-        created() {
-            this.current = this.value;
+        watch: {
+            current: function(value) {
+                this.$emit('input', value)
+            }
         },
         computed: {
             gridCols() {
@@ -32,7 +34,6 @@
             }
         },
         props: {
-            value: Object,
             iconset: {
                 type: String,
                 default: "fa"

@@ -4,7 +4,7 @@ module.exports = {
     './app/**/*.vue'
   ],
   theme: {
-    extend: {},
+    extend: {}
   },
   variants: {},
   plugins: [],
