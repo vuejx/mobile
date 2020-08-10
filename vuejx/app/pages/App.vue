@@ -1,11 +1,11 @@
 <template>
   <Page actionBarHidden="true">
     <FlexboxLayout class="page">
+      <StackLayout>
+        <vn-btn icon="fa-refresh" @tap="reloadPage"  width="70px"></vn-btn>
+      </StackLayout>
       <vn-loading v-if="!reloadResourceScreen"></vn-loading>
       <component v-else :is="currentComponent"></component>
-      <StackLayout>
-        <vn-btn icon="fa-refresh" @tap="reloadPage" width="70px" class="border-white text-white font-semibold rounded"></vn-btn>
-      </StackLayout>
     </FlexboxLayout>
   </Page>
 </template>
