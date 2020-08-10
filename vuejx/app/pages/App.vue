@@ -1,11 +1,9 @@
 <template>
   <Page actionBarHidden="true">
     <FlexboxLayout class="page">
-      <StackLayout>
-        <vn-btn icon="fa-refresh" @tap="reloadPage"  width="70px"></vn-btn>
-      </StackLayout>
       <vn-loading v-if="!appData.reloadResourceScreen"></vn-loading>
       <component v-else :is="currentComponent"></component>
+      
     </FlexboxLayout>
   </Page>
 </template>
@@ -80,7 +78,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .page {
   align-items: center !important;
   flex-direction: column !important;
