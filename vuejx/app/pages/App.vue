@@ -31,10 +31,10 @@ export default {
     vm.appData = vm.$store.state.appData;
     this.isPhone = device.deviceType == DeviceType.Phone;
     this.isTablet = device.deviceType == DeviceType.Tablet;
-     await vm.$store.commit("appData", {
-        isPhone: device.deviceType == DeviceType.Phone,
-        isTablet: device.deviceType == DeviceType.Tablet
-     });
+    await vm.$store.commit("appData", {
+      isPhone: device.deviceType == DeviceType.Phone,
+      isTablet: device.deviceType == DeviceType.Tablet
+    });
     await vm.$store.commit("currentComponent", vm.$store.state.appData.screen['login']['screenConfig']);
     vm.currentComponent = vm.$store.state.currentComponent;
   },

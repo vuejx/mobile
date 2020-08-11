@@ -11,7 +11,14 @@ export default new Vuex.Store({
       isPhone: null,
       isTablet: null,
       screen: {},
-      props: {}
+      props: {},
+      user: {},
+      token_date: '',
+      expires_in: '',
+      token: '',
+      access_token: '',
+      refresh_token: '',
+      site: 'guest'
     },
     currentComponent: 'viewScreen'
   },
@@ -23,6 +30,16 @@ export default new Vuex.Store({
     currentComponent (state, data) {
       // mutate state
       state.currentComponent = eval("( " + data + " )")
+    },
+    user (state, data) {
+      // mutate state
+      if (data.status === 200) {
+        state.appData.token_date = new Date().getTime();
+        state.appData.expires_in = data.data.expires_in;
+        state.appData.access_token = data.data.access_token;
+        state.appData.refresh_token = data.data.refresh_token;
+        state.appData.token = data.data.token;
+      }
     }
   },
   actions: {
@@ -79,7 +96,7 @@ export default new Vuex.Store({
     graphqlQuery({ state }, payload) {
       return new Promise((resolve, reject) => {
         let varia = payload.variables;
-        varia['token'] = '';
+        varia['token'] = state.appData.token;
         global.axios.post('https://issues.fds.vn/vuejx/', {
           query: payload.query,
           variables: JSON.stringify(varia)
