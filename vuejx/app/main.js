@@ -2,7 +2,9 @@ import Vue from 'nativescript-vue'
 import App from './pages/App'
 import store from './store'
 import axios from "axios"
+import getObject from 'lodash.get';
 global.axios = axios
+global.objectView = getObject
 global.Buffer = global.Buffer || require('buffer').Buffer;
 global.screen = {}
 var viewScreen = null;
