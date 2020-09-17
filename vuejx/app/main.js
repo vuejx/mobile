@@ -10,6 +10,7 @@ global.screen = {}
 var viewScreen = null;
 global.viewScreen = viewScreen;
 global.apps = []
+global.objectView = getObject
 
 import VueDevtools from 'nativescript-vue-devtools'
 Vue.use(VueDevtools)
