@@ -1,6 +1,9 @@
 <template>
   <Page actionBarHidden="true">
-    <SVGImage src="~/assets/svg/action/accessibility/materialicons/24px.svg" height="24" width="24" />
+    <FlexboxLayout class="page">
+      <vn-loading v-if="!appData.reloadResourceScreen"></vn-loading>
+      <component v-else :is="currentComponent"></component>
+    </FlexboxLayout>
   </Page>
 </template>
 
@@ -37,7 +40,6 @@ export default {
   },
 };
 </script>
-
 <style>
 .page {
   align-items: center !important;
@@ -47,7 +49,6 @@ export default {
   background-position: center;
   background-size: cover;
 }
-
 .form {
   margin-left: 30;
   margin-right: 30;
