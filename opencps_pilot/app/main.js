@@ -10,7 +10,8 @@ var viewScreen = null;
 global.viewScreen = viewScreen;
 global.apps = []
 global.objectView = getObject
-
+import RadChart from "nativescript-ui-chart/vue";
+Vue.use(RadChart);
 import VueDevtools from 'nativescript-vue-devtools'
 Vue.use(VueDevtools)
 Vue.registerElement('SVGImage', () => require('nativescript-svg').SVGImage)
@@ -26,6 +27,7 @@ import VnPdf from './components/pdf/Index.vue'
 import VnFooter from './components/footer/Index.vue'
 import CardView from './components/card/Index.vue'
 import LoadingScreen from './components/loading/Index.vue'
+import LoadingSkeleton from './components/loading_list/Index.vue'
 
 
 Vue.component('vn-btn', VnBtn)
@@ -35,7 +37,7 @@ Vue.component('vn-pdf', VnPdf)
 Vue.component('vn-footer', VnFooter)
 Vue.component('vn-card', CardView)
 Vue.component('vn-loading', LoadingScreen)
-
+Vue.component('vn-skeleton', LoadingSkeleton)
 
 new Vue({
   store,

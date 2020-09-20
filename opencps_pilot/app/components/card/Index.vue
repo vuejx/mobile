@@ -1,8 +1,11 @@
 <template>
-  <StackLayout :class="{'pt-6': !hidden}" :borderRadius="radius" :width="width" class="bg-white">
-    <GridLayout columns="*, 40" rows="1" @tap="dkm" class="mb-1" :class="{'h-6': !showPanel, 'h-5': showPanel}" v-if="!hidden">
-      <Button col="0" class="text-left text-gray-900 text-lg p-2 pl-4 fa font-semibold" @tap="dkm">{{ title }}</Button>
-      <Button col="1" class="-mr-1 text-gray-500 text-xs fa mt-1" @tap="dkm">{{ showPanel ? 'fa-chevron-up': 'fa-chevron-right' | fonticon}}</Button>
+  <StackLayout :borderRadius="radius" :width="width" class="bg-white">
+    <GridLayout columns="*, 30" rows="auto" :class="headerClass" v-if="!hidden">
+      <Label col="0" :class="headerClassBtn" textWrap="true" :textAlignment="textAlignment" :text="title" />
+      <vn-btn col="1" :label="''" :class="closeClass"
+          @tap="doCloseable" 
+          appendIcon="keyboard_arrow_down" style="padding-top: 3;">
+        </vn-btn>
     </GridLayout>
     <GridLayout v-show="showPanel" rows="auto" iosOverflowSafeArea="false">
         <slot class="slot" name="content"></slot>
@@ -13,7 +16,8 @@
 export default {
   data() {
     return {
-      showPanel: true
+      showPanel: true,
+      closeableIcon: '~/assets/svg/keyboard_arrow_down/black.svg'
     };
   },
   props: {
@@ -30,10 +34,38 @@ export default {
     radius: {
       type: Number,
       default: 10
+    },
+    headerClass: {
+      type: String,
+      default: 'h-3'
+    },
+    headerClassBtn: {
+      type: String,
+      default: 'text-left text-gray-900 text-lg p-2 pl-4 fa font-semibold'
+    },
+    textAlignment: {
+      type: String,
+      default: 'left'
+    },
+    closeClass: {
+      type: String,
+      default: 'left'
     }
   },
+  mounted() {
+    let vm = this;
+    vm.$nextTick(function() {
+      if (vm.showPanel) {
+        vm.closeableIcon = '~/assets/svg/keyboard_arrow_up/black.svg';
+      } else {
+        vm.closeableIcon = '~/assets/svg/keyboard_arrow_down/black.svg';
+      }
+      console.log('vm.showPanelvm.showPanelvm.showPanelvm.showPanel', vm.showPanel);
+    })
+  },
   methods: {
-    dkm() {
+    doCloseable() {
+      console.log('doCloseabledoCloseabledoCloseabledoCloseable');
       if (this.closeable) {
         this.showPanel = !this.showPanel
       }

@@ -1,17 +1,16 @@
 <template>
-    <GridLayout :columns="gridCols" rows="40" class="lpi-main"
+    <GridLayout :columns="gridCols" :rows="isTablet ? heightTablet : heightPhone" class="lpi-main"
         iosOverflowSafeArea="false">
         <GridLayout :col="getIconPos()" :backgroundColor="iconBackgroundColor"
             :class="'lpi-icon ' + position" iosOverflowSafeArea="false">
-            <Label :class="iconset" :text="icon | fonticon" verticalAlignment="center" color="000000"
-                horizontalAlignment="center" iosOverflowSafeArea="false" />
+            <vn-image-view :width="isPhone ? '20' : '30'" :height="isPhone ? '20' : '30'" :src_icon="icon" :tintColor="tintColor" :class="isPhone ? 'pt-1' : 'pt-1'" v-if="icon.length > 1"/>
         </GridLayout>
         <GridLayout :col="getTextPos()" :backgroundColor="textBackgroundColor"
             :class="'lpi-text ' + position"
             iosOverflowSafeArea="false">
-            <TextField v-model="current" :hint="hint" verticalAlignment="center"
+            <TextField v-model="current" :hint="hint" verticalAlignment="center" :class="isPhone ? '' : 'text-xl'"
                 horizontalAlignment="left" :keyboardType="keyboard" autocapitalizationType="none"
-                iosOverflowSafeArea="false" :secure="secure" />
+                iosOverflowSafeArea="false" :secure="secure" :height="isTablet ? heightTablet : heightPhone" />
         </GridLayout>
     </GridLayout>
 </template>
@@ -20,8 +19,18 @@
     export default {
         data() {
             return {
-                current: undefined
+                current: undefined,
+                isPhone: true,
+                isTablet: false
             };
+        },
+        mounted() {
+            let vm = this;
+            vm.$nextTick(function() {
+                vm.isPhone = vm.$store.state.appData['isPhone'];
+                vm.isTablet = vm.$store.state.appData['isTablet'];
+                vm.current = vm.value;
+            })
         },
         watch: {
             current: function(value) {
@@ -30,17 +39,33 @@
         },
         computed: {
             gridCols() {
-                return this.position === "left" ? "40, *" : "*, 40";
+                if (this.icon.length > 1) {
+                    return this.position === "left" ? "40, 600" : "600, 40";
+                } else {
+                    return this.position === "left" ? "12, 600" : "600, 12";
+                }
             }
         },
         props: {
+            tintColor: {
+                type: String,
+                default: ''
+            },
+            heightTablet: {
+                type: String,
+                default: '40'
+            },
+            heightPhone: {
+                type: String,
+                default: '28'
+            },
             iconset: {
                 type: String,
                 default: "fa"
             },
             icon: {
                 type: String,
-                default: "fa-user"
+                default: ""
             },
             iconBackgroundColor: {
                 type: String,
@@ -70,6 +95,10 @@
             secure: {
                 type: Boolean,
                 default: false
+            },
+            value: {
+                type: String,
+                default: ""
             }
         },
         name: "TextFieldI",
@@ -90,43 +119,11 @@
 
 <style scoped>
     .lpi-main {
-        border-radius: 5;
+        border-radius: 4;
     }
-
-    .lpi-icon {
-        color: white;
-        border-top-left-radius: 5;
-        border-bottom-left-radius: 5;
-        font-size: 20;
-    }
-
-    .lpi-icon.right {
-        border-top-right-radius: 5;
-        border-bottom-right-radius: 5;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-    }
-
     .lpi-text {
-        color: #003c5a;
-        padding: 10;
-        border-top-right-radius: 5;
-        border-bottom-right-radius: 5;
-        font-size: 14;
+        font-size: 13px;
     }
-
-    .lpi-text.right {
-        border-top-left-radius: 5;
-        border-bottom-left-radius: 5;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-
-    .lpi-text.border {
-        border-width: 1;
-        border-color: #eee;
-    }
-
     TextField {
         margin: 0;
         padding: 0;

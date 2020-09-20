@@ -48,7 +48,13 @@ export default new Vuex.Store({
         size: 10000,
         query: {
           bool: {
-            must: [],
+            must: [
+              {
+                match: {
+                  appName: 'opencps_congdan'
+                }
+              }
+            ],
           },
         },
       };
