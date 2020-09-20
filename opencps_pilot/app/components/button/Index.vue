@@ -1,13 +1,13 @@
 <template>
   <GridLayout :columns="'auto, *, auto'" :rows="'*'" @tap="click" iosOverflowSafeArea="false">
       <GridLayout :col="'0'" iosOverflowSafeArea="false" v-if="appendIcon">
-          <SVGImage :src="'~/assets/svg/' + appendIcon + '/' + iconFill + '.svg'" :height="iconSize" :width="iconSize" />
+          <vn-image-view :height="iconSize" :width="iconSize" :src_icon="appendIcon" :tintColor="tintColor" :class="iconClass" />
       </GridLayout>
       <GridLayout :col="'1'">
           <Label textWrap="true" :textAlignment="textAlignment" :text="label" :class="labelCalss" />
       </GridLayout>
       <GridLayout :col="'2'" iosOverflowSafeArea="false" v-if="prependIcon">
-          <SVGImage :src="'~/assets/svg/' + prependIcon + '/' + iconFill + '.svg'" :height="iconSize" :width="iconSize" />
+          <vn-image-view :height="iconSize" :width="iconSize" :src_icon="prependIcon" :tintColor="tintColor" :class="iconClass" />
       </GridLayout>
   </GridLayout>
 </template>
@@ -17,6 +17,14 @@ export default {
   props:{
   	label: {
       type: String
+    },
+    tintColor: {
+      type: String,
+      default: ''
+    },
+  	iconClass: {
+      type: String,
+      default: ''
     },
   	textAlignment: {
       type: String,
