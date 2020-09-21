@@ -1,8 +1,8 @@
 <template>
   <FlexboxLayout @tap="click" iosOverflowSafeArea="false">
     <vn-image-view :height="iconSize" :width="iconSize" :src_icon="appendIcon" :tintColor="tintColor" :class="iconClass" v-if="appendIcon" />
-    <Label :width="'100%'" textWrap="true" :textAlignment="textAlignment" :text="label" :class="labelCalss" v-if="label"/>
-    <vn-image-view :height="iconSize" :width="iconSize" :src_icon="prependIcon" :tintColor="tintColor" :class="iconClass" v-if="prependIcon" />
+    <Label :width="'100%'" textWrap="true" :textAlignment="prependIcon ? 'left' : textAlignment" :text="label" :class="labelCalss" v-if="label"/>
+    <vn-image-view :height="iconSize" :width="iconSize" :src_icon="prependIcon" :tintColor="tintColor" :class="iconClass" v-if="prependIcon" class="-ml-8" />
   </FlexboxLayout>
 </template>
 
