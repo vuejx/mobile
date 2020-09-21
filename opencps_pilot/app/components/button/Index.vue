@@ -1,15 +1,9 @@
 <template>
-  <GridLayout :columns="'auto, *, auto'" rows="*,auto,*" @tap="click" iosOverflowSafeArea="false" :class="{'tapPendding': label && tapPendding, 'tapPenddingText': label === '' && tapPendding}">
-      <GridLayout col="0" row="1" iosOverflowSafeArea="false" v-if="appendIcon">
-          <vn-image-view :height="iconSize" :width="iconSize" :src_icon="appendIcon" :tintColor="tintColor" :class="iconClass" />
-      </GridLayout>
-      <GridLayout col="1" row="1" cols="*" rows="*,auto,*">
-          <Label col="0" row="1" textWrap="true" :textAlignment="textAlignment" :text="label" :class="labelCalss" />
-      </GridLayout>
-      <GridLayout col="2" row="1" iosOverflowSafeArea="false" v-if="prependIcon">
-          <vn-image-view :height="iconSize" :width="iconSize" :src_icon="prependIcon" :tintColor="tintColor" :class="iconClass" />
-      </GridLayout>
-  </GridLayout>
+  <FlexboxLayout @tap="click" iosOverflowSafeArea="false">
+    <vn-image-view :height="iconSize" :width="iconSize" :src_icon="appendIcon" :tintColor="tintColor" :class="iconClass" v-if="appendIcon" />
+    <Label :width="'100%'" textWrap="true" :textAlignment="textAlignment" :text="label" :class="labelCalss" v-if="label"/>
+    <vn-image-view :height="iconSize" :width="iconSize" :src_icon="prependIcon" :tintColor="tintColor" :class="iconClass" v-if="prependIcon" />
+  </FlexboxLayout>
 </template>
 
 <script>
@@ -28,7 +22,7 @@
             },
             textAlignment: {
                 type: String,
-                default: "left"
+                default: "center"
             },
             iconFill: {
                 type: String,
@@ -71,7 +65,6 @@
     .tapPendding {
         background-color: darkgray;
     }
-
     .tapPenddingText {
         color: darkgray;
     }
