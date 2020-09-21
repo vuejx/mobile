@@ -31,15 +31,11 @@ export default {
     vm.appData = vm.$store.state.appData;
     await vm.$store.commit("appData", {
       isPhone: device.deviceType == DeviceType.Phone,
-      isTablet: device.deviceType == DeviceType.Tablet
+      isTablet: device.deviceType == DeviceType.Tablet,
+      props: { }
     });
     await vm.$store.commit("currentComponent", vm.$store.state.appData.screen['opencps_landing']['screenConfig']);
     vm.currentComponent = vm.$store.state.currentComponent;
   },
 };
 </script>
-<style>
-  .svg-white svg {
-    fill: white !important;
-  }
-</style>

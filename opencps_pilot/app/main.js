@@ -3,6 +3,7 @@ import App from './pages/App'
 import store from './store'
 import axios from "axios"
 import getObject from 'lodash.get';
+
 global.axios = axios
 global.Buffer = global.Buffer || require('buffer').Buffer;
 global.screen = {}
@@ -12,11 +13,8 @@ global.apps = []
 global.objectView = getObject
 import RadChart from "nativescript-ui-chart/vue";
 Vue.use(RadChart);
-import VueDevtools from 'nativescript-vue-devtools'
-Vue.use(VueDevtools)
-Vue.registerElement('SVGImage', () => require('nativescript-svg').SVGImage)
 Vue.registerElement('PDFView', () => require('nativescript-pdf-view').PDFView)
-
+Vue.registerElement("Gif", () => require('nativescript-gif').Gif)
 // Prints Vue logs when --env.production is *NOT* set while building
 Vue.config.silent = (TNS_ENV === 'production')
 // register component
@@ -28,7 +26,6 @@ import VnFooter from './components/footer/Index.vue'
 import CardView from './components/card/Index.vue'
 import LoadingScreen from './components/loading/Index.vue'
 import LoadingSkeleton from './components/loading_list/Index.vue'
-
 
 Vue.component('vn-btn', VnBtn)
 Vue.component('vn-text', VnText)

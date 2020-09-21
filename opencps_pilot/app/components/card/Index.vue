@@ -60,12 +60,10 @@ export default {
       } else {
         vm.closeableIcon = '~/assets/svg/keyboard_arrow_down/black.svg';
       }
-      console.log('vm.showPanelvm.showPanelvm.showPanelvm.showPanel', vm.showPanel);
     })
   },
   methods: {
     doCloseable() {
-      console.log('doCloseabledoCloseabledoCloseabledoCloseable');
       if (this.closeable) {
         this.showPanel = !this.showPanel
       }

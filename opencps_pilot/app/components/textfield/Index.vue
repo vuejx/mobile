@@ -1,5 +1,5 @@
 <template>
-    <GridLayout :columns="gridCols" :rows="isTablet ? heightTablet : heightPhone" class="lpi-main"
+    <GridLayout :columns="gridCols" :rows="isTablet ? heightTablet : heightPhone" class="rounded"
         iosOverflowSafeArea="false">
         <GridLayout :col="getIconPos()" :backgroundColor="iconBackgroundColor"
             :class="'lpi-icon ' + position" iosOverflowSafeArea="false">
@@ -8,7 +8,7 @@
         <GridLayout :col="getTextPos()" :backgroundColor="textBackgroundColor"
             :class="'lpi-text ' + position"
             iosOverflowSafeArea="false">
-            <TextField v-model="current" :hint="hint" verticalAlignment="center" :class="isPhone ? '' : 'text-xl'"
+            <TextField v-model="current" :hint="hint" verticalAlignment="center" :class="isPhone ? '' : 'text-xl'" class="placeholder-gray-900"
                 horizontalAlignment="left" :keyboardType="keyboard" autocapitalizationType="none"
                 iosOverflowSafeArea="false" :secure="secure" :height="isTablet ? heightTablet : heightPhone" />
         </GridLayout>
@@ -40,13 +40,17 @@
         computed: {
             gridCols() {
                 if (this.icon.length > 1) {
-                    return this.position === "left" ? "40, 600" : "600, 40";
+                    return this.position === "left" ? "40, " + this.maxWidth : this.maxWidth + ", 40";
                 } else {
-                    return this.position === "left" ? "12, 600" : "600, 12";
+                    return this.position === "left" ? "12, " + this.maxWidth : this.maxWidth + ", 12";
                 }
             }
         },
         props: {
+            maxWidth: {
+                type: String,
+                default: '600'
+            },
             tintColor: {
                 type: String,
                 default: ''

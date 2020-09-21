@@ -1,8 +1,8 @@
 <template>
   <StackLayout>
-    <Image :src="src_raw" :horizontalAlignment="alignment" :width="width" :height="height" v-if="src_raw.length > 10" />
-    <Image :src="'~/assets/images/icons/' + src_icon + '/icon.png'" :horizontalAlignment="alignment" :width="width" :height="height" v-if="src_icon.length > 1" :tintColor="tintColor"/>
-    <Image :src="'https://issues.fds.vn'+src" :horizontalAlignment="alignment" :width="width" :height="height" v-else/>
+    <Image :src="src_raw" :horizontalAlignment="alignment" :width="width" height="inherit" v-if="src_raw.length > 10" />
+    <Image :src="'~/assets/images/icons/' + src_icon + '/icon.png'" :horizontalAlignment="alignment" :width="width" height="inherit" v-if="src_icon.length > 1" :tintColor="tintColor"/>
+    <Image :src="'https://issues.fds.vn'+src" :horizontalAlignment="alignment" :width="width" height="inherit" v-else/>
   </StackLayout>
 </template>
 <script>
@@ -27,7 +27,7 @@ export default {
     },
     height: {
       type: String,
-      default: '24'
+      default: 'inherit'
     },
     alignment: String
   },

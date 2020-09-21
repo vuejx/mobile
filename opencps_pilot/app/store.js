@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue from 'nativescript-vue';
 import Vuex from 'vuex';
 
 Vue.use(Vuex);
@@ -25,6 +25,9 @@ export default new Vuex.Store({
   mutations: {
     appData (state, data) {
       // mutate state
+      if (data['props']) {
+        state.appData['props'] = data['props'];
+      }
       state.appData = {...state.appData, ...data}
     },
     currentComponent (state, data) {

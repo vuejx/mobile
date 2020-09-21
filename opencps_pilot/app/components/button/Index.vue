@@ -1,5 +1,5 @@
 <template>
-  <GridLayout :columns="'auto, *, auto'" :rows="'*'" @tap="click" iosOverflowSafeArea="false">
+  <GridLayout :columns="'auto, *, auto'" :rows="'*'" @tap="click" iosOverflowSafeArea="false" :class="{'tapPendding': label && tapPendding, 'tapPenddingText': label === '' && tapPendding}">
       <GridLayout :col="'0'" iosOverflowSafeArea="false" v-if="appendIcon">
           <vn-image-view :height="iconSize" :width="iconSize" :src_icon="appendIcon" :tintColor="tintColor" :class="iconClass" />
       </GridLayout>
@@ -35,8 +35,8 @@ export default {
       default: 'black'
     },
   	iconSize: {
-      type: Number,
-      default: 20
+      type: String,
+      default: '20'
     },
   	appendIcon: {
       type: String,
@@ -55,10 +55,29 @@ export default {
       default: ''
     },
   },
+  data() {
+    return {
+      tapPendding: false
+    };
+  },
   methods:{
     click(){
-      this.$emit('tap')
+      if (!this.tapPendding) {
+        this.$emit('tap')
+      }
+      this.tapPendding = true;
+      setTimeout(() => {
+        this.tapPendding = false;
+      }, 200);
     },    
   }
 };
 </script>
+<style>
+  .tapPendding {
+    background-color: darkgray;
+  }
+  .tapPenddingText {
+    color: darkgray;
+  }
+</style>
