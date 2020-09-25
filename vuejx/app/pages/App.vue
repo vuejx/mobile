@@ -1,12 +1,11 @@
 <template>
   <Page actionBarHidden="true">
-    <FlexboxLayout class="page">
+    <FlexboxLayout class="page">      
       <vn-loading v-if="!appData.reloadResourceScreen"></vn-loading>
       <component v-else :is="currentComponent"></component>
     </FlexboxLayout>
   </Page>
 </template>
-
 <script>
 import { screen } from 'tns-core-modules/platform';
 const device = require("tns-core-modules/platform").device;
@@ -37,7 +36,7 @@ export default {
     });
     await vm.$store.commit("currentComponent", vm.$store.state.appData.screen['login']['screenConfig']);
     vm.currentComponent = vm.$store.state.currentComponent;
-  },
+  },  
 };
 </script>
 

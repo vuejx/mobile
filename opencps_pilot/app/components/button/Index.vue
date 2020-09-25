@@ -1,83 +1,71 @@
 <template>
-  <GridLayout :columns="'auto, *, auto'" :rows="'*'" @tap="click" iosOverflowSafeArea="false" :class="{'tapPendding': label && tapPendding, 'tapPenddingText': label === '' && tapPendding}">
-      <GridLayout :col="'0'" iosOverflowSafeArea="false" v-if="appendIcon">
-          <vn-image-view :height="iconSize" :width="iconSize" :src_icon="appendIcon" :tintColor="tintColor" :class="iconClass" />
-      </GridLayout>
-      <GridLayout :col="'1'">
-          <Label textWrap="true" :textAlignment="textAlignment" :text="label" :class="labelCalss" />
-      </GridLayout>
-      <GridLayout :col="'2'" iosOverflowSafeArea="false" v-if="prependIcon">
-          <vn-image-view :height="iconSize" :width="iconSize" :src_icon="prependIcon" :tintColor="tintColor" :class="iconClass" />
-      </GridLayout>
-  </GridLayout>
+  <FlexboxLayout @tap="click" iosOverflowSafeArea="false">
+    <vn-image-view :height="iconSize" :width="iconSize" :src_icon="appendIcon" :tintColor="tintColor" :class="iconClass" v-if="appendIcon" />
+    <Label :width="'100%'" textWrap="true" :textAlignment="prependIcon ? 'left' : textAlignment" :text="label" :class="labelCalss" v-if="label"/>
+    <vn-image-view :height="iconSize" :width="iconSize" :src_icon="prependIcon" :tintColor="tintColor" :class="iconClass" v-if="prependIcon" class="-ml-8" />
+  </FlexboxLayout>
 </template>
 
-<script >
-export default {
-  props:{
-  	label: {
-      type: String
-    },
-    tintColor: {
-      type: String,
-      default: ''
-    },
-  	iconClass: {
-      type: String,
-      default: ''
-    },
-  	textAlignment: {
-      type: String,
-      default: 'left'
-    },
-  	iconFill: {
-      type: String,
-      default: 'black'
-    },
-  	iconSize: {
-      type: String,
-      default: '20'
-    },
-  	appendIcon: {
-      type: String,
-      default: ''
-    },
-  	prependIcon: {
-      type: String,
-      default: ''
-    },
-    icon: {
-      type: Boolean,
-      default: false
-    },
-  	labelCalss: {
-      type: String,
-      default: ''
-    },
-  },
-  data() {
-    return {
-      tapPendding: false
+<script>
+    export default {
+        props: {
+            label: {
+                type: String
+            },
+            tintColor: {
+                type: String,
+                default: ""
+            },
+            iconClass: {
+                type: String,
+                default: ""
+            },
+            textAlignment: {
+                type: String,
+                default: "center"
+            },
+            iconFill: {
+                type: String,
+                default: "black"
+            },
+            iconSize: {
+                type: String,
+                default: "20"
+            },
+            appendIcon: {
+                type: String,
+                default: ""
+            },
+            prependIcon: {
+                type: String,
+                default: ""
+            },
+            icon: {
+                type: Boolean,
+                default: false
+            },
+            labelCalss: {
+                type: String,
+                default: ""
+            }
+        },
+        data() {
+            return {
+                tapPendding: false
+            };
+        },
+        methods: {
+            click() {
+                this.$emit("tap");
+            }
+        }
     };
-  },
-  methods:{
-    click(){
-      if (!this.tapPendding) {
-        this.$emit('tap')
-      }
-      this.tapPendding = true;
-      setTimeout(() => {
-        this.tapPendding = false;
-      }, 200);
-    },    
-  }
-};
 </script>
 <style>
-  .tapPendding {
-    background-color: darkgray;
-  }
-  .tapPenddingText {
-    color: darkgray;
-  }
+    .tapPendding {
+        background-color: darkgray;
+    }
+    .tapPenddingText {
+        color: darkgray;
+    }
 </style>

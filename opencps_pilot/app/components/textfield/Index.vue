@@ -1,18 +1,21 @@
 <template>
-    <GridLayout :columns="gridCols" :rows="isTablet ? heightTablet : heightPhone" class="rounded"
-        iosOverflowSafeArea="false">
-        <GridLayout :col="getIconPos()" :backgroundColor="iconBackgroundColor"
-            :class="'lpi-icon ' + position" iosOverflowSafeArea="false">
-            <vn-image-view :width="isPhone ? '20' : '30'" :height="isPhone ? '20' : '30'" :src_icon="icon" :tintColor="tintColor" :class="isPhone ? 'pt-1' : 'pt-1'" v-if="icon.length > 1"/>
-        </GridLayout>
-        <GridLayout :col="getTextPos()" :backgroundColor="textBackgroundColor"
-            :class="'lpi-text ' + position"
+    <GridLayout cols="*,auto,*" rows="*,auto,*">
+        <GridLayout row="1" col="1" :columns="gridCols" :rows="isTablet ? heightTablet : heightPhone" class="rounded"
             iosOverflowSafeArea="false">
-            <TextField v-model="current" :hint="hint" verticalAlignment="center" :class="isPhone ? '' : 'text-xl'" class="placeholder-gray-900"
-                horizontalAlignment="left" :keyboardType="keyboard" autocapitalizationType="none"
-                iosOverflowSafeArea="false" :secure="secure" :height="isTablet ? heightTablet : heightPhone" />
+            <GridLayout :col="getIconPos()" :backgroundColor="iconBackgroundColor"
+                :class="'lpi-icon ' + position" iosOverflowSafeArea="false">
+                <vn-image-view :width="isPhone ? '20' : '30'" :height="isPhone ? '20' : '30'" :src_icon="icon" :tintColor="tintColor" :class="isPhone ? 'pt-1' : 'pt-1'" v-if="icon.length > 1"/>
+            </GridLayout>
+            <GridLayout :col="getTextPos()" :backgroundColor="textBackgroundColor"
+                :class="'lpi-text ' + position"
+                iosOverflowSafeArea="false">
+                <TextField v-model="current" :hint="hint" verticalAlignment="center" :class="isPhone ? '' : 'text-xl'" class="placeholder-gray-900"
+                    horizontalAlignment="left" :keyboardType="keyboard" autocapitalizationType="none"
+                    iosOverflowSafeArea="false" :secure="secure" :height="isTablet ? heightTablet : heightPhone" />
+            </GridLayout>
         </GridLayout>
     </GridLayout>
+    
 </template>
 
 <script>

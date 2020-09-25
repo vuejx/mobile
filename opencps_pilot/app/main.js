@@ -14,7 +14,6 @@ global.objectView = getObject
 import RadChart from "nativescript-ui-chart/vue";
 Vue.use(RadChart);
 Vue.registerElement('PDFView', () => require('nativescript-pdf-view').PDFView)
-Vue.registerElement("Gif", () => require('nativescript-gif').Gif)
 // Prints Vue logs when --env.production is *NOT* set while building
 Vue.config.silent = (TNS_ENV === 'production')
 // register component
