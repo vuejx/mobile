@@ -1,0 +1,14 @@
+@tailwind components;
+@tailwind utilities;
+
+
+.fa{
+  font-family: "FontAwesome", "fontawesome-webfont";
+}
+.ion{
+  font-family: "ionicons";
+}
+
+TextField {
+  height: 82px;
+}

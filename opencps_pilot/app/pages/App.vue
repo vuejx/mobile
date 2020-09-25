@@ -1,14 +1,13 @@
 <template>
   <Page actionBarHidden="true">
     <FlexboxLayout class="page">
-      <vn-loading v-if="!appData.reloadResourceScreen"></vn-loading>
-      <component v-else :is="currentComponent" ></component>
+      <vn-loading></vn-loading>
     </FlexboxLayout>
   </Page>
 </template>
 
 <script>
-import { screen } from 'tns-core-modules/platform';
+import { screen } from "tns-core-modules/platform";
 const device = require("tns-core-modules/platform").device;
 const DeviceType = require("tns-core-modules/ui/enums").DeviceType;
 var viewScreen = {
@@ -22,20 +21,39 @@ export default {
   data() {
     return {
       appData: {},
-      currentComponent: 'viewScreen'
+      currentComponent: "viewScreen",
     };
   },
   async mounted() {
     let vm = this;
     await vm.$store.dispatch("initApp");
-    vm.appData = vm.$store.state.appData;
-    await vm.$store.commit("appData", {
+    vm.$store.commit("load");
+    vm.$store.commit("appData", {
       isPhone: device.deviceType == DeviceType.Phone,
       isTablet: device.deviceType == DeviceType.Tablet,
-      props: { }
+      props: {},
     });
-    await vm.$store.commit("currentComponent", vm.$store.state.appData.screen['opencps_landing']['screenConfig']);
+    let inPage = "login_mtso";
+    if (vm.$store.state.appData["token"]) {
+      inPage = "router_mtso";
+    }
+    await vm.$store.commit(
+        "currentComponent",
+        vm.$store.state.appData.screen[inPage][
+            "screenConfig"
+        ]
+    );
     vm.currentComponent = vm.$store.state.currentComponent;
+    vm.$navigateTo(vm.currentComponent, {
+      transition: { name: "fade", duration: 0 },
+      transitioniOS: { name: "fade", duration: 0 },
+      transitionAndroid: { name: "fade", duration: 0 },
+    });
+  },
+  methods: {
+    sleep(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    },
   },
 };
 </script>
