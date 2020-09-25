@@ -20,7 +20,7 @@ import VueJXKit from './components/vuejx-kit'
 Vue.use(VueJXKit)
 
 // Prints Vue logs when --env.production is *NOT* set while building
-Vue.config.silent = false //(TNS_ENV === 'production')
+Vue.config.silent = true //(TNS_ENV === 'production')
 
 Vue.registerElement(
   'LottieView',

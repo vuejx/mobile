@@ -116,7 +116,6 @@ export default {
   computed: {
     // một computed getter
     currentPageView: function () {
-      console.log('vm.currentPagevm.currentPageViewcurrentPageViewcurrentPageView', this.currentPage);
       return this.currentPage;
     },
   },
