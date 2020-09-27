@@ -1,44 +1,38 @@
 import Vue from 'nativescript-vue'
 import App from './pages/App'
 import store from './store'
-import axios from "axios"
-import getObject from 'lodash.get';
+import axios from "axios";
 
-global.axios = axios
-global.Buffer = global.Buffer || require('buffer').Buffer;
-global.screen = {}
-var viewScreen = null;
-global.viewScreen = viewScreen;
-global.apps = []
-global.objectView = getObject
+global.axios = axios;
+
 import RadChart from "nativescript-ui-chart/vue";
 Vue.use(RadChart);
-Vue.registerElement('PDFView', () => require('nativescript-pdf-view').PDFView)
-// Prints Vue logs when --env.production is *NOT* set while building
-Vue.config.silent = (TNS_ENV === 'production')
-// register component
-import VnBtn from './components/button/Index.vue'
-import VnText from './components/textfield/Index.vue'
-import VnImageView from './components/image/Index.vue'
-import VnPdf from './components/pdf/Index.vue'
-import VnFooter from './components/footer/Index.vue'
-import CardView from './components/card/Index.vue'
-import LoadingScreen from './components/loading/Index.vue'
-import LoadingSkeleton from './components/loading_list/Index.vue'
+
+// Uncommment the following to see NativeScript-Vue output logs
+Vue.config.silent = false;
+
+import VnBtn from './components/button/Index'
+import VnText from './components/textfield/Index'
+import VnImageView from './components/image/Index'
+import LoadingScreen from './components/loading/Index'
+import LoadingSkeleton from './components/loading_list/Index'
+import VnFooter from './components/footer/Index'
+import CardView from './components/card/Index'
+import VnPdf from './components/pdf/Index'
 
 Vue.component('vn-btn', VnBtn)
 Vue.component('vn-text', VnText)
 Vue.component('vn-image-view', VnImageView)
-Vue.component('vn-pdf', VnPdf)
-Vue.component('vn-footer', VnFooter)
-Vue.component('vn-card', CardView)
 Vue.component('vn-loading', LoadingScreen)
 Vue.component('vn-skeleton', LoadingSkeleton)
+Vue.component('vn-footer', VnFooter)
+Vue.component('vn-card', CardView)
+Vue.component('vn-pdf', VnPdf)
+
+
+Vue.registerElement('PDFView', () => require('nativescript-pdf-view').PDFView)
 
 new Vue({
   store,
-  render: h => h('frame', [h(App)]),
-  mounted() {
-    global.store = this.$store
-  },
+  render: h => h('frame', [h(App)])
 }).$start()
