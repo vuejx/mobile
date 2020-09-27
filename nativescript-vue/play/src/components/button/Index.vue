@@ -1,11 +1,16 @@
 <template>
   <StackLayout :height="isAndroid ? androidheight : '100%'" :class="tapPendding ? 'opacity-50': ''" @tap="click">
     <ActivityIndicator v-if="tapPendding" width="100%" height="100%" class="z-50" color="black" busy="true"></ActivityIndicator>
-    <GridLayout v-else :columns="(appendIcon? '30,' : '') + '*' + (prependIcon? ',30' : '')" rows="*">
+    <slot v-else
+        class="slot"
+        name="btn"
+    >
+      <GridLayout :columns="(appendIcon? '30,' : '') + '*' + (prependIcon? ',30' : '')" rows="*">
         <vn-image-view row="0" col="0" :orientation="flexDirection === 'column' ? '' : 'horizontal'" :src_icon="appendIcon" :tintColor="tintColor" :class="iconClass" v-if="appendIcon"/>
         <Label row="0" :col="appendIcon && prependIcon ? '1': prependIcon ? '0': '1'" @loaded="onLabelLoaded" textWrap="true" :textAlignment="prependIcon ? 'left' : textAlignment" :text="label" :class="labelCalss" :height="flexDirection === 'column' ? labelheight : '100%'"/>
         <vn-image-view row="0" col="2" :src_icon="prependIcon" :tintColor="tintColor" :class="iconClass" v-if="prependIcon"/>
-    </GridLayout>
+      </GridLayout>
+    </slot>
   </StackLayout>
 </template>
 

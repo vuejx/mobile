@@ -4,6 +4,8 @@ import store from './store'
 import axios from "axios"
 const appSettings = require("@nativescript/core/application-settings")
 const Device = require("@nativescript/core/platform").Device
+import RadChart from "nativescript-ui-chart/vue";
+Vue.use(RadChart);
 
 global.Vue = Vue
 global.Vue.$store = store

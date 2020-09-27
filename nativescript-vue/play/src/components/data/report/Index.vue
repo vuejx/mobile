@@ -90,6 +90,7 @@ export default {
         .then(data => {
           let objectUnknown = {};
           for (let key in data) {
+            
             if (objectReport[key]) {
               if (
                 data[key]["aggregations"] !== undefined &&
