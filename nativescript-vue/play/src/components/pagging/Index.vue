@@ -5,61 +5,79 @@
     "
     :rows="isIOS ? '40' : '40'"
   >
-    <vn-btn
-      row="0"
-      col="0"
-      :tintColor="tintColorTitle"
-      appendIcon="navigate_before"
+    <slot
+        class="slot"
+        name="icon"
     >
-    </vn-btn>
-    <vn-btn v-if="title" 
-      :class="titleClass"
-      :col="!isTablet ? '1': '2'" row="0" :label="title" textAlignment="left">
-    </vn-btn>
-    <vn-btn
-      row="0"
-      :col="!isTablet ? '2': '3'"
-      :label="!isTablet ? '' : 'Trang đầu'"
-      :appendIcon="!isTablet ? 'first_page' : 'first_page'"
-      :tintColor="tintColorPagging"
-      @tap="paggingData('first')"
+      <vn-btn
+        row="0"
+        col="0"
+        :tintColor="tintColorTitle"
+        :appendIcon="paggingFirstIcon"
+        @tap="paggingTitleAction"
+      >
+      </vn-btn>
+    </slot>
+    <slot
+        class="slot"
+        name="title"
     >
-    </vn-btn>
-    <vn-btn
-      row="0"
-      :col="!isTablet ? '3': '4'"
-      :label="!isTablet ? '' : 'Trang trước'"
-      :appendIcon="!isTablet ? 'navigate_before' : 'navigate_before'"
-      @tap="paggingData('first')"
-      :tintColor="tintColorPagging"
+      <vn-btn v-if="title" 
+        :class="titleClass"
+        @tap="paggingTitleAction"
+        :col="!isTablet ? '1': '2'" row="0" :label="title" textAlignment="left">
+      </vn-btn>
+    </slot>
+    <slot
+        class="slot"
+        name="pagging"
     >
-    </vn-btn>
-    <vn-btn
-      row="0"
-      :tapable="false"
-      :col="!isTablet ? '4': '5'"
-      :label="'Trang ' + currentPageView"
-      :tintColor="tintColorPagging"
-    >
-    </vn-btn>
-    <vn-btn
-      row="0"
-      :col="!isTablet ? '5': '6'"
-      :label="!isTablet ? '' : 'Trang sau'"
-      :appendIcon="!isTablet ? 'navigate_next' : 'navigate_next'"
-      :tintColor="tintColorPagging"
-      @tap="paggingData('next')"
-    >
-    </vn-btn>
-    <vn-btn
-      row="0"
-      :col="!isTablet ? '6': '7'"
-      :label="!isTablet ? '' : 'Trang cuối'"
-      :appendIcon="!isTablet ? 'last_page' : 'last_page'"
-      :tintColor="tintColorPagging"
-      @tap="paggingData('last')"
-    >
-    </vn-btn>
+      <vn-btn
+        row="0"
+        :col="!isTablet ? '2': '3'"
+        :label="!isTablet ? '' : 'Trang đầu'"
+        :appendIcon="!isTablet ? 'first_page' : 'first_page'"
+        :tintColor="tintColorPagging"
+        @tap="paggingData('first')"
+      >
+      </vn-btn>
+      <vn-btn
+        row="0"
+        :col="!isTablet ? '3': '4'"
+        :label="!isTablet ? '' : 'Trang trước'"
+        :appendIcon="!isTablet ? 'navigate_before' : 'navigate_before'"
+        @tap="paggingData('prev')"
+        :tintColor="tintColorPagging"
+      >
+      </vn-btn>
+      <vn-btn
+        row="0"
+        :tapable="false"
+        :col="!isTablet ? '4': '5'"
+        :label="'Trang ' + currentPageView"
+        :tintColor="tintColorPagging"
+        :class="titleClass"
+      >
+      </vn-btn>
+      <vn-btn
+        row="0"
+        :col="!isTablet ? '5': '6'"
+        :label="!isTablet ? '' : 'Trang sau'"
+        :appendIcon="!isTablet ? 'navigate_next' : 'navigate_next'"
+        :tintColor="tintColorPagging"
+        @tap="paggingData('next')"
+      >
+      </vn-btn>
+      <vn-btn
+        row="0"
+        :col="!isTablet ? '6': '7'"
+        :label="!isTablet ? '' : 'Trang cuối'"
+        :appendIcon="!isTablet ? 'last_page' : 'last_page'"
+        :tintColor="tintColorPagging"
+        @tap="paggingData('last')"
+      >
+      </vn-btn>
+    </slot>
   </GridLayout>
 </template>
 
@@ -102,6 +120,10 @@ export default {
       type: Number,
       default: 10
     },
+    paggingFirstIcon: {
+      type: String,
+      default: "navigate_before",
+    }
   },
   data() {
     return {
@@ -130,13 +152,9 @@ export default {
     });
   },
   methods: {
-    click() {
+    paggingTitleAction() {
       let vm = this;
-      vm.tapPendding = true;
-      setTimeout(() => {
-        vm.tapPendding = false;
-      }, 200);
-      vm.$emit("tap");
+      vm.$emit("paggingTitleAction");
     },
     onLabelLoaded(args) {
       if (args.object.android) {

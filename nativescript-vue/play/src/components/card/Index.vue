@@ -1,12 +1,16 @@
 <template>
   <StackLayout :width="width" class="bg-white" @tap="tapClick">
     <GridLayout columns="*, 30" rows="*" :class="headerClass" v-if="!hidden">
-      <Label col="0" :class="headerClassBtn" textWrap="true" :textAlignment="textAlignment" :text="title" />
-      <vn-btn col="1" :label="''" :class="closeClass"
-          @tap="doCloseable" 
-          :tintColor="tintColor"
-          :appendIcon="showPanel ? closeIcon : closeIconActive" style="padding-top: -8px;">
+      <slot class="slot" name="header" >
+        <Label col="0" :class="headerClassBtn" textWrap="true" :textAlignment="textAlignment" :text="title" />
+      </slot>
+      <slot class="slot" name="button" >
+        <vn-btn col="1" :label="''" :class="closeClass"
+            @tap="doCloseable" 
+            :tintColor="tintColor"
+            :appendIcon="showPanel ? closeIcon : closeIconActive" style="padding-top: -8px;">
         </vn-btn>
+      </slot>
     </GridLayout>
     <GridLayout v-show="showPanel" rows="auto" iosOverflowSafeArea="false">
         <slot class="slot" name="content"></slot>

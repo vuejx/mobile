@@ -31,6 +31,7 @@
             let vm = this;
             vm.$nextTick(function() {
                 vm.isTablet = global.API.deviceType === 'Phone' ? false : true;
+                vm.current = vm.value
             })
         },
         watch: {

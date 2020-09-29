@@ -227,6 +227,10 @@ export default {
       }
       bodyQuery["from"] = vm.currentPage * vm.pagesize - vm.pagesize;
       bodyQuery["size"] = vm.pagesize;
+      for (let el of vm.condition) {
+        bodyQuery["query"]["bool"]["must"].push(el);
+      }
+      console.log('bodyQuery', JSON.stringify(bodyQuery));
       await vm.$store
         .dispatch("graphqlQuery", {
           query: `
