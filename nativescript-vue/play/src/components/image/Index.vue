@@ -33,10 +33,6 @@ export default {
       type: String,
       default: ''
     },
-    orientation: {
-      type: String,
-      default: ''
-    },
     imageClass: {
       type: String,
       default: ''
