@@ -25,3 +25,4 @@ vuejx/app/App_Resources/iOS/build.xcconfig
 .history/vuejx/app/main_20200810083427.js
 nativescript-vue/play/src/.DS_Store
 nativescript-vue/play/src/assets/images/.DS_Store
+*.zip

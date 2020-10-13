@@ -1,8 +1,8 @@
 <template>
   <StackLayout orientation="horizontal" width="100%">
     <Image :class="imageClass" :src="src_raw" :horizontalAlignment="alignment" :width="width" :height="height" v-if="src_raw.length > 10" />
-    <Image :class="imageClass" :src="'~/assets/images/icons/' + src_icon + '/icon.png'" :horizontalAlignment="alignment" :width="width" :height="height" v-if="src_icon.length > 1" :tintColor="tintColor"/>
-    <Image :class="imageClass" :src="'https://issues.fds.vn'+src" :horizontalAlignment="alignment" :width="width" :height="height" v-else-if="src"/>
+    <Image :src="'~/assets/images/icons/' + src_icon + '/icon.png'" :horizontalAlignment="alignment" :width="width" :height="height" v-if="src_icon.length > 1" :tintColor="tintColor"/>
+    <Image :src="'https://issues.fds.vn'+src" :horizontalAlignment="alignment" :width="width" :height="height" v-else-if="src"/>
   </StackLayout>
 </template>
 <script>
@@ -33,10 +33,6 @@ export default {
       type: String,
       default: ''
     },
-    orientation: {
-      type: String,
-      default: ''
-    },
     imageClass: {
       type: String,
       default: ''
@@ -45,8 +41,3 @@ export default {
   },
 };
 </script>
-<style >
-  Label {
-    backgound-color: red !important;
-  }
-</style>
