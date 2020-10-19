@@ -145,8 +145,10 @@ export default {
     let vm = this;
     vm.$nextTick(function () {
       vm.isIOS = global.API.isIOS;
-      vm.isAndroid = global.API.isAndroid;
-      vm.isTablet = global.API.deviceType === 'Phone' ? false : true;
+      if (global.API) {
+        vm.isAndroid = global.API.isAndroid;
+        vm.isTablet = global.API.deviceType === 'Phone' ? false : true;
+      }
       vm.currentPage = 1;
       vm.from = 0;
     });

@@ -1,5 +1,5 @@
 <template>
-  <StackLayout orientation="horizontal" width="100%">
+  <StackLayout verticalAlignment="center">
     <Image :class="imageClass" :src="src_raw" :horizontalAlignment="alignment" :width="width" :height="height" v-if="src_raw.length > 10" />
     <Image :class="imageClass" :src="'~/assets/images/icons/' + src_icon + '/icon.png'" :horizontalAlignment="alignment" :width="width" :height="height" v-if="src_icon.length > 1" :tintColor="tintColor"/>
     <Image :class="imageClass" :src="'https://issues.fds.vn'+src" :horizontalAlignment="alignment" :width="width" :height="height" v-else-if="src"/>

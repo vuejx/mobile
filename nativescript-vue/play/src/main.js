@@ -4,7 +4,7 @@ import store from './store'
 import axios from "axios"
 const appSettings = require("@nativescript/core/application-settings")
 const Device = require("@nativescript/core/platform").Device
-const isAndroid = require("@nativescript/core/platform").isAndroid
+const isAndroid1 = require("@nativescript/core/platform").isAndroid
 const isIOS = require("@nativescript/core/platform").isIOS
 import RadChart from "nativescript-ui-chart/vue";
 Vue.use(RadChart);
@@ -18,7 +18,7 @@ global.API = {
   vuejx: 'http://119.17.200.66:2480/vuejx',
   deviceType: Device.deviceType,
   isIOS: isIOS,
-  isAndroid: isAndroid,
+  isAndroid: isAndroid1,
   scale: Screen.mainScreen.scale,
   heightDIPs: Screen.mainScreen.heightDIPs
 }
