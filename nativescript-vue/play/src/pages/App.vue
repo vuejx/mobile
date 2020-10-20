@@ -11,7 +11,7 @@ export default {
       vm.$store.commit("extData", JSON.parse(global.appSettings.getString("extData")));
     }
     await global.Vue.$store.dispatch("pullPlayground", vm.$options.components);
-    vm.$navigateTo("vuejx_playground", {
+    vm.$navigateTo("tcmt", {
       transition: { name: "fade", duration: 0 },
       transitioniOS: { name: "fade", duration: 0 },
       transitionAndroid: { name: "fade", duration: 0 },

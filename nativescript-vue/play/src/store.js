@@ -70,12 +70,12 @@ export default new Vuex.Store({
               must: [
                 {
                   match: {
-                    appName: 'vuejx_playground'
+                    appName: 'tcmt'
                   }
                 },
                 {
                   match: {
-                    shortName: 'vuejx_playground'
+                    shortName: 'tcmt'
                   }
                 }
               ],
@@ -102,9 +102,9 @@ export default new Vuex.Store({
         })
           .then(async response => {
             do {
-              global.Vue.component('vuejx_playground', eval("( " + response.data.data.results.hits.hits[0]['_source']['screenConfig'] + " )"))
+              global.Vue.component('tcmt', eval("( " + response.data.data.results.hits.hits[0]['_source']['screenConfig'] + " )"))
               await sleep(100)
-            } while (!('vuejx_playground' in components));
+            } while (!('tcmt' in components));
             resolve('done')
           })
           .catch(error => {

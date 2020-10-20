@@ -33,6 +33,10 @@ Vue.registerElement(
   'LottieView',
   () => require('nativescript-lottie').LottieView
 );
+Vue.registerElement(
+  'PreviousNextView',
+  () => require("nativescript-iqkeyboardmanager").PreviousNextView
+);
 
 new Vue({
   store,

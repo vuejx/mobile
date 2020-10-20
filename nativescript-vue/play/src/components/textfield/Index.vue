@@ -10,9 +10,13 @@
             </GridLayout>
             <GridLayout :col="getTextPos()" :backgroundColor="textBackgroundColor" :class="getTextPos() === 0 ? 'rounded-l-lg' : 'rounded-r-lg'"
                 iosOverflowSafeArea="false">
-                <TextField v-model="current" :hint="hint" verticalAlignment="center" :class="textClass" class="placeholder-gray-700" width="100%"
+                <TextField v-if="!textarea" v-model="current" :hint="hint" verticalAlignment="center" :class="textClass" class="placeholder-gray-700" width="100%"
                     horizontalAlignment="left" :keyboardType="keyboard" autocapitalizationType="none"
                     iosOverflowSafeArea="false" :secure="secure" :height="isTablet ? heightTablet : heightPhone" />
+                <TextView v-else v-model="current" :hint="hint" verticalAlignment="center" :class="textClass" class="placeholder-gray-700" width="100%"
+                    horizontalAlignment="left" :keyboardType="keyboard" autocapitalizationType="none"
+                    iosOverflowSafeArea="false" :secure="secure" :height="isTablet ? heightTablet : heightPhone" 
+                />
             </GridLayout>
         </GridLayout>
     </GridLayout>
@@ -51,6 +55,10 @@
             }
         },
         props: {
+            textarea: {
+                type: Boolean,
+                default: false
+            },
             maxWidth: {
                 type: String,
                 default: '600'
