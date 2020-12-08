@@ -8,8 +8,40 @@ const isAndroid1 = require("@nativescript/core/platform").isAndroid
 const isIOS = require("@nativescript/core/platform").isIOS
 import RadChart from "nativescript-ui-chart/vue";
 Vue.use(RadChart);
-import { Screen } from '@nativescript/core';
+import { Screen, Application } from '@nativescript/core';
+/*
+import { SocketIO, connect } from 'nativescript-socketio';
 
+
+const server = 'http://localhost:3000';
+
+connect(server)
+var socketIO = new SocketIO(server, {});
+
+socketIO.on('my-channel', function (data) {
+  console.log('my-channel', data);
+});
+
+socketIO.on('error', function (error) {
+  console.log('error', error);
+});
+
+socketIO.connect();
+
+// App went to background...
+Application.on(Application.suspendEvent, function (args) {
+  console.log('chat is in background mode');
+  socketIO.connect();
+
+});
+
+// App was reopened...
+Application.on(Application.resumeEvent, function (args) {
+  console.log('chat is not longer in background mode');
+});
+
+
+*/
 global.Vue = Vue
 global.Vue.$store = store
 global.axios = axios

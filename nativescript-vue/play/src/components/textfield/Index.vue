@@ -12,7 +12,7 @@
                 iosOverflowSafeArea="false">
                 <TextField v-if="!textarea" v-model="current" :hint="hint" verticalAlignment="center" :class="textClass" class="placeholder-gray-700" width="100%"
                     horizontalAlignment="left" :keyboardType="keyboard" autocapitalizationType="none"
-                    iosOverflowSafeArea="false" :secure="secure" :height="isTablet ? heightTablet : heightPhone" />
+                    iosOverflowSafeArea="false" :secure="secure" :height="isTablet ? heightTablet : heightPhone" @blur="textChange($event)" />
                 <TextView v-else v-model="current" :hint="hint" verticalAlignment="center" :class="textClass" class="placeholder-gray-700" width="100%"
                     horizontalAlignment="left" :keyboardType="keyboard" autocapitalizationType="none"
                     iosOverflowSafeArea="false" :secure="secure" :height="isTablet ? heightTablet : heightPhone" 
@@ -133,9 +133,8 @@
             getTextPos() {
                 return this.position === "left" ? 1 : 0;
             },
-            updateSel(val) {
-                this.current = val;
-                this.$emit("input", val);
+            textChange(val) {
+                this.$emit("change", this.current);
             },
             iconTap() {
                 this.$emit('tap')

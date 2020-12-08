@@ -1,0 +1,52 @@
+{
+  "_from": "@nativescript/android@7.0.0",
+  "_id": "@nativescript/android@7.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-RplCS/0nteROpatMYZHXlyA1xp+9c0+sBBm5QxUy7MYaoY+iHdfboAv+J62XTI8aEmbNHDkBm7/eYFxgCbrdEA==",
+  "_location": "/@nativescript/android",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "@nativescript/android@7.0.0",
+    "name": "@nativescript/android",
+    "escapedName": "@nativescript%2fandroid",
+    "scope": "@nativescript",
+    "rawSpec": "7.0.0",
+    "saveSpec": null,
+    "fetchSpec": "7.0.0"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/@nativescript/android/-/android-7.0.0.tgz",
+  "_shasum": "d599ac7e93bf67e3b8cf38e8fb566a52ac241bff",
+  "_spec": "@nativescript/android@7.0.0",
+  "_where": "/Users/binhth/Documents/GitHub/my_work/mobile/nativescript-vue/lich-tcmt",
+  "android_ndk_version": "21b",
+  "bugs": {
+    "url": "https://github.com/NativeScript/android-runtime/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "NativeScript Runtime for Android",
+  "files": [
+    "**/*"
+  ],
+  "gradle": {
+    "version": "6.4",
+    "android": "3.6.4"
+  },
+  "homepage": "https://github.com/NativeScript/android-runtime#readme",
+  "name": "@nativescript/android",
+  "publishConfig": {
+    "tag": "next",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NativeScript/android-runtime.git"
+  },
+  "version": "7.0.0"
+}

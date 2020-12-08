@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>114334907527-erpgmbb61bbvjr817og80kc425erf1l7.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.114334907527-erpgmbb61bbvjr817og80kc425erf1l7</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC0y48hZkxhwveryov4_dS4ie3b2eY0udI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>114334907527</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>fds.vuejx.project</string>
+	<key>PROJECT_ID</key>
+	<string>vuejx-core</string>
+	<key>STORAGE_BUCKET</key>
+	<string>vuejx-core.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:114334907527:ios:9a643f88116b1af135cc22</string>
+	<key>DATABASE_URL</key>
+	<string>https://vuejx-core.firebaseio.com</string>
+</dict>
+</plist>

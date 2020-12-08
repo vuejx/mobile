@@ -9,6 +9,7 @@
     "@nativescript/core": "^7.0.3",
     "@vue/devtools": "^5.3.3",
     "axios": "^0.20.0",
+    "ioredis": "^4.19.2",
     "nativescript-iqkeyboardmanager": "^1.5.1",
     "nativescript-lottie": "^5.0.1",
     "nativescript-socketio": "^3.3.1",

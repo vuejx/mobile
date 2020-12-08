@@ -1,0 +1,57 @@
+{
+  "_args": [
+    [
+      "@nativescript/ios@7.0.0",
+      "/Users/binhth/Documents/GitHub/my_work/mobile/nativescript-vue/lich-tcmt"
+    ]
+  ],
+  "_development": true,
+  "_from": "@nativescript/ios@7.0.0",
+  "_id": "@nativescript/ios@7.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-6Tv4WG7plnuzVhnJ16E9XJ5flJOzqb5Wmmgx6Tn1NMNXTNZuT6c7rfDBGDR/xexz0gZ8Sx3PULyeBdUCKa/LIg==",
+  "_location": "/@nativescript/ios",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "@nativescript/ios@7.0.0",
+    "name": "@nativescript/ios",
+    "escapedName": "@nativescript%2fios",
+    "scope": "@nativescript",
+    "rawSpec": "7.0.0",
+    "saveSpec": null,
+    "fetchSpec": "7.0.0"
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@nativescript/ios/-/ios-7.0.0.tgz",
+  "_spec": "7.0.0",
+  "_where": "/Users/binhth/Documents/GitHub/my_work/mobile/nativescript-vue/lich-tcmt",
+  "author": {
+    "name": "NativeScript Team",
+    "email": "oss@nativescript.org"
+  },
+  "bugs": {
+    "url": "https://github.com/NativeScript/ios-runtime/issues"
+  },
+  "description": "NativeScript Runtime for iOS",
+  "directories": {},
+  "files": [
+    "**/*"
+  ],
+  "homepage": "https://github.com/NativeScript/ios-runtime#readme",
+  "keywords": [
+    "NativeScript",
+    "iOS",
+    "runtime"
+  ],
+  "license": "Apache-2.0",
+  "name": "@nativescript/ios",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NativeScript/ios-runtime.git"
+  },
+  "version": "7.0.0"
+}

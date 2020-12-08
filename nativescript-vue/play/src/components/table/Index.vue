@@ -273,13 +273,13 @@ export default {
         .catch((err) => {
           console.log(err);
         });
+      vm.loadingList = false;
       vm.$emit('pullData', {
         page: vm.currentPage,
         pages: vm.pages,
         totalData: vm.totalData,
         data: vm.dataResults
       });
-      vm.loadingList = false;
     },
     isArray(item, key) {
       try {

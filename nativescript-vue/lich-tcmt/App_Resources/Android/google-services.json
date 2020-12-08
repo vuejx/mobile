@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "114334907527",
+    "firebase_url": "https://vuejx-core.firebaseio.com",
+    "project_id": "vuejx-core",
+    "storage_bucket": "vuejx-core.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:114334907527:android:6b2c34878e448a2835cc22",
+        "android_client_info": {
+          "package_name": "fds.vuejx.lich.tcmt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "114334907527-mht32hrver6q8avcdbf1040grmjbonot.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClQKee1G4fKaIhlglf4ROfuDo6bz0fuk4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "114334907527-mht32hrver6q8avcdbf1040grmjbonot.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "114334907527-erpgmbb61bbvjr817og80kc425erf1l7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "fds.vuejx.project"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

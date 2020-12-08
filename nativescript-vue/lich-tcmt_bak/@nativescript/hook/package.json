@@ -1,0 +1,57 @@
+{
+  "_args": [
+    [
+      "@nativescript/hook@2.0.0",
+      "/Users/binhth/Documents/GitHub/my_work/mobile/nativescript-vue/lich-tcmt"
+    ]
+  ],
+  "_from": "@nativescript/hook@2.0.0",
+  "_id": "@nativescript/hook@2.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-v3Hj3Zpd69sQJfFpDNXonV0EjO1a2OL4l48wlo1Ycsqk4r7RY822d/irFTjt0LllRG0OcdEGgfG6wKb0YgPyHw==",
+  "_location": "/@nativescript/hook",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "@nativescript/hook@2.0.0",
+    "name": "@nativescript/hook",
+    "escapedName": "@nativescript%2fhook",
+    "scope": "@nativescript",
+    "rawSpec": "2.0.0",
+    "saveSpec": null,
+    "fetchSpec": "2.0.0"
+  },
+  "_requiredBy": [
+    "/@nativescript/core",
+    "/@nativescript/firebase",
+    "/@nativescript/webpack",
+    "/nativescript-vue"
+  ],
+  "_resolved": "https://registry.npmjs.org/@nativescript/hook/-/hook-2.0.0.tgz",
+  "_spec": "2.0.0",
+  "_where": "/Users/binhth/Documents/GitHub/my_work/mobile/nativescript-vue/lich-tcmt",
+  "author": {
+    "name": "NativeScript"
+  },
+  "bugs": {
+    "url": "https://github.com/NativeScript/nativescript-hook/issues"
+  },
+  "dependencies": {
+    "glob": "^7.1.0",
+    "mkdirp": "^1.0.4"
+  },
+  "description": "Helper module for installing hooks into NativeScript projects",
+  "homepage": "https://github.com/NativeScript/nativescript-hook#readme",
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "name": "@nativescript/hook",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NativeScript/nativescript-hook.git"
+  },
+  "scripts": {
+    "test": "exit 0"
+  },
+  "version": "2.0.0"
+}
